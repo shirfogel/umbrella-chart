@@ -1,0 +1,7 @@
+loki:
+  isDefault: true
+  config:
+    auth_enabled: false
+  persistence:
+    enabled: true
+    size: 10Gi

@@ -1,0 +1,4 @@
+# Default values
+kube-prometheus-stack: {}
+grafana: {}
+loki: {}

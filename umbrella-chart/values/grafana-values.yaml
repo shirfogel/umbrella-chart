@@ -1,0 +1,27 @@
+grafana:
+  service:
+    enabled: true
+    type: ClusterIP
+    port: 80
+    targetPort: 3000
+  resources:
+   limits:
+     memory: 512Mi
+   requests:
+     cpu: 100m
+     memory: 128Mi
+  datasources:
+    datasources.yaml:
+      apiVersion: 1
+      datasources:
+        - name: Prometheus
+          type: prometheus
+          url: http://kube-prometheus-stack-prometheus.prometheus.svc.cluster.local
+          access: proxy
+          isDefault: true
+
+  persistence:
+    enabled: false  # Set to true with PVC config in production
+
+  ingress:
+    enabled: false  # You can set this to true later when exposing via Ingress
