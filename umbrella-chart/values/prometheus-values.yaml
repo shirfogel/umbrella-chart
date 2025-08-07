@@ -2,6 +2,8 @@ kube-prometheus-stack:
   prometheus:
     enabled: true
     prometheusSpec:
+      serviceMonitorSelector: {}
+      serviceMonitorSelectorNilUsesHelmValues: true
       retention: 10d
       resources:
         requests:

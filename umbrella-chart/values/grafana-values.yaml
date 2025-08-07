@@ -16,9 +16,18 @@ grafana:
       datasources:
         - name: Prometheus
           type: prometheus
-          url: http://kube-prometheus-stack-prometheus.prometheus.svc.cluster.local
+          url: http://umbrella-chart-kube-promet-prometheus.monitoring.svc.cluster.local:9090
           access: proxy
           isDefault: true
+        - name: Loki
+          type: loki
+          access: proxy
+          url: http://loki-gateway.monitoring.svc.cluster.local
+          isDefault: false
+          # basicAuth: true
+          # basicAuthUser: user #change it when needed
+          # secureJsonData:
+          #   basicAuthPassword: pass #change it when needed
 
   persistence:
     enabled: false  # Set to true with PVC config in production
